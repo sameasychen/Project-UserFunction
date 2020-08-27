@@ -8,8 +8,8 @@ const User = props => {
       return(
         
         <li>
-        <p>Username: {props.userData.userName}</p>
-		<p>No.  Games: {props.showGamesPlayed ? props.userData.numGamesPlayed : '*'}</p>
+        <span>Username: {props.userData.userName} </span>
+		<span> have played {props.showGamesPlayed ? props.userData.numGamesPlayed : ' * '} Games.</span>
 		</li>
         
         

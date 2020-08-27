@@ -5,17 +5,19 @@ import PropTypes from 'prop-types';
 class AddUser extends Component {
   state={
     user:
-    {
-  	firstName:"",
-    lastName:"",
-    userName:"",
-    }
-  	}
+      {
+  		firstName: '',
+    	lastName: '',
+    	userName: '',
+      },
+    userExists: false,
+    
+  	};
 
    handleChange = event => {
-       const { name, value} = event.target
+    const { name, value } = event.target;
 
-         this.setState(currState => ({
+    this.setState(currState => ({
       ...currState,
       user: {
         ...currState.user,
@@ -28,14 +30,39 @@ class AddUser extends Component {
 		return this.state.firstName==='' ||this.state.lastName===''|| this.state.noGame===''
 	}
 
-	addUser =(event) =>{
+	contactExists = currUsername => {
+    const users = this.props.userData;
+    for (let user of users) {
+      console.log("user: "+user);
+      console.log("currUsername: "+currUsername);
+      if (user.userName === currUsername) {
+        
+        return true;
+      }
+    }
+      return false;
+  	};
+
+	addUser =event =>{
     	event.preventDefault();
       	
+      const userExists = this.contactExists(this.state.user.userName);
+      console.log("this.state.userName: "+this.state.user.userName);
+      
+      if(!userExists){
       	this.props.onAddUser(this.state.user);
+    	};
+      
+      this.setState(() => ({userExists,}));
+      
       
 	}
   
     render() {
+      
+      //const { firstName, lastName, username } = this.state.user;
+		console.log("userExists: "+this.state.userExists);
+
       return(
       <form onSubmit={this.addUser}>
 		<input
@@ -61,7 +88,15 @@ class AddUser extends Component {
 		/>
 		<button disabled={this.inputIsEmpty()}>Add</button>
 
+		{this.state.userExists ? (<p className="error">You cannot add a user that already exists.</p>) : ('')}
+
+		<hr></hr>
 		</form>
+
+
+
+		
+	  
         )
     }
   
