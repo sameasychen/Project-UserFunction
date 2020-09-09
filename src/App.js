@@ -6,21 +6,21 @@ import AddUser from './AddUser';
 
 
 class App extends Component {
-  
-  state={
+
+  state = {
 
     users: [
-    
-    	],
-  	}
 
-	handleAddUser = user => {
-      user.numGamesPlayed = 0;
-		this.setState(prevState=> ({users: [...prevState.users, user]}))
-	};
+    ],
+  }
+
+  handleAddUser = user => {
+    user.numGamesPlayed = 0;
+    this.setState(prevState => ({ users: [...prevState.users, user] }))
+  };
 
   render() {
-   
+
     console.log(this.state.users);
 
     return (
@@ -29,13 +29,18 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-    
-    	<AddUser onAddUser={this.handleAddUser} userData={this.state.users}/>
-    	
 
-		  <UserList userData={this.state.users}/>
-		
-		
+        <div className="row mt-5">
+          <div className="col-md-5">
+            <AddUser onAddUser={this.handleAddUser} userData={this.state.users} />
+          </div>
+          <div class="midLine"></div>
+          <div className="col-md-6">
+            <UserList userData={this.state.users} />
+          </div>
+        </div>
+
+
       </div>
     );
   }

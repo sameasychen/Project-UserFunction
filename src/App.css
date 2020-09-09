@@ -32,10 +32,15 @@
 }
 
 .UserList{
-  width: 600px;
+  width: 960px;
   margin: auto;
 }
 
 .error{
   color: red;
+}
+
+.midLine{
+  width: 1px;
+  background-color: black;
 }

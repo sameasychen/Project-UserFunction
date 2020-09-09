@@ -36,7 +36,7 @@ class UserList extends Component {
 				{userData && userData.length > 0 ? buttonNumGame : ""}
 
 
-				<ol>
+				<ol className="mt-3">
 
 					{userData.map(data => <User userData={data} showGamesPlayed={this.state.showGamesPlayed} />)}
 
