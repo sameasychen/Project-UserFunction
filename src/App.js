@@ -10,6 +10,12 @@ class App extends Component {
   state = {
 
     users: [
+      {
+        firstName: 'Mike',
+        lastName: 'Sui',
+        userName: 'GMING',
+        numGamesPlayed: 0,
+      }
 
     ],
   }

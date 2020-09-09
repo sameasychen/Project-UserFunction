@@ -9,7 +9,7 @@ const User = props => {
         
         <li>
         <span>{props.userData.firstName} (Username: {props.userData.userName} )</span>
-		<span> have played {props.showGamesPlayed ? props.userData.numGamesPlayed : ' * '} Games.</span>
+		<span> has played {props.showGamesPlayed ? props.userData.numGamesPlayed : ' * '} Games.</span>
 		</li>
         
         
